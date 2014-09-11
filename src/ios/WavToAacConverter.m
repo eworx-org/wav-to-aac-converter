@@ -37,7 +37,11 @@
 {
     @try
     {
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        enum ConverterState state = Complete;
+        NSDictionary* result = @{
+            @"state" : [NSNumber numberWithInt:(UInt32)state]
+        };
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:_currentCommandCallbackId];
     }
     @finally
@@ -53,7 +57,12 @@
 
 - (void) AACAudioConverter: (TPAACAudioConverter*) converter didMakeProgress: (CGFloat) progress
 {
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDouble:(double)progress];
+    enum ConverterState state = InProgress;
+    NSDictionary* result = @{
+        @"state" : [NSNumber numberWithInt:(UInt32)state],
+        @"progress" : [NSNumber numberWithDouble:(double)progress]
+    };
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:_currentCommandCallbackId];
 }
 

@@ -1,11 +1,11 @@
 #import <Cordova/CDV.h>
 #import "TPAACAudioConverter.h"
 
-@enum ConverterState : int
+enum ConverterState : UInt32
 {
     InProgress = 0,
     Complete = 1
-}
+};
 
 @interface WavToAacConverter : CDVPlugin<TPAACAudioConverterDelegate>
 
