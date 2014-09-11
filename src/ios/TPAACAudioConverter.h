@@ -42,7 +42,7 @@ enum {
 - (void)AACAudioConverterDidFinishConversion:(TPAACAudioConverter*)converter;
 - (void)AACAudioConverter:(TPAACAudioConverter*)converter didFailWithError:(NSError*)error;
 @optional
-- (void)AACAudioConverter:(TPAACAudioConverter*)converter didMakeProgress:(CGFloat)progress;
+- (void)AACAudioConverter:(TPAACAudioConverter*)converter didMakeProgress:(double)progress;
 @end
 
 @protocol TPAACAudioConverterDataSource <NSObject>
