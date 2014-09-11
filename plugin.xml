@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    id="gr.eworx.wavToAccConverter" 
+    version="0.0.1">
+
+    <name>WavToAccConverter</name>
+    
+    <description>iOS Wav to AAC converter</description>
+    
+    <license>Apache 2.0</license>
+    
+    <keywords>cordova,ios,audio,wav,aac,converter</keywords>
+    
+    <js-module src="www/wavToAacConverter.js" name="WavToAacConverter">
+        <clobbers target="window.gr.eworx.WavToAacConverter" />
+    </js-module>
+    
+    <platform name="ios">
+    
+        <config-file target="config.xml" parent="/*">
+            <feature name="WavToAacConverter">
+                <param name="ios-package" value="WavToAacConverter"/>
+            </feature>
+        </config-file>
+    
+        <header-file src="src/ios/WavToAacConverter.h" />
+        <source-file src="src/ios/WavToAacConverter.m" />
+        
+        <header-file src="src/ios/TPAACAudioConverter.h" />
+        <source-file src="src/ios/TPAACAudioConverter.m" />
+        
+    </platform>
+    
+</plugin>
