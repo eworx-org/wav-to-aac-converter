@@ -8,8 +8,8 @@ var WavToAacConverter = function() {
 };
 
 WavToAacConverter.ConverterState = {
-    IN_PROGRESS = 0,
-    COMPLETE = 1
+    IN_PROGRESS: 0,
+    COMPLETE: 1
 };
 
 WavToAacConverter.prototype.convert = function(source, destination, progressCallback, errorCallback) {
