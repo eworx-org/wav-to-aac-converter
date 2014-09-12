@@ -24,7 +24,7 @@
     
     NSString* sourcePath = (NSString*)[command.arguments objectAtIndex:0];
     NSString* destinationPath = (NSString*)[command.arguments objectAtIndex:1];
-    _audioConverter = [[TPAACAudioConverter alloc] initWithDelegate:self source:sourcePath destination:destinationPath;
+    _audioConverter = [[TPAACAudioConverter alloc] initWithDelegate:self source:sourcePath destination:destinationPath];
     [_audioConverter start];
 }
 
