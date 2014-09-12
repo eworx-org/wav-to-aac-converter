@@ -16,8 +16,8 @@ WavToAacConverter.prototype.convert = function(source, destination, progressCall
     exec(progressCallback, errorCallback, 'WavToAacConverter', 'convert', [source, destination]);
 };
 
-WavToAacConverter.prototype.release = function() {
-    exec(null, null, 'WavToAacConverter', 'release');
+WavToAacConverter.prototype.dispose = function() {
+    exec(null, null, 'WavToAacConverter', 'dispose');
 };
 
 module.exports = WavToAacConverter;

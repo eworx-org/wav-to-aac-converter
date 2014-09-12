@@ -28,7 +28,7 @@
     [_audioConverter start];
 }
 
-- (void) release: (CDVInvokedUrlCommand*) command
+- (void) dispose: (CDVInvokedUrlCommand*) command
 {
     [self clearEncodingState];
 }

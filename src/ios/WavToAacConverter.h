@@ -11,7 +11,7 @@ enum ConverterState : UInt32
 
 - (void) convert: (CDVInvokedUrlCommand*) command;
 
-- (void) release: (CDVInvokedUrlCommand*) command;
+- (void) dispose: (CDVInvokedUrlCommand*) command;
 
 @end
 
