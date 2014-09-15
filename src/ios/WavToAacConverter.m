@@ -53,7 +53,14 @@
 
 - (void) AACAudioConverter: (TPAACAudioConverter*) converter didFailWithError: (NSError*) error
 {
-    [self sendErrorResult:_currentCommandCallbackId withMessage:[error localizedDescription]];
+    @try
+    {
+        [self sendErrorResult:_currentCommandCallbackId withMessage:[error localizedDescription]];
+    }
+    @finally
+    {
+        [self clearEncodingState];
+    }
 }
 
 - (void) AACAudioConverter: (TPAACAudioConverter*) converter didMakeProgress: (double) progress
