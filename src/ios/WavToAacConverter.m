@@ -56,12 +56,12 @@
     [self sendErrorResult:_currentCommandCallbackId withMessage:[error localizedDescription]];
 }
 
-- (void) AACAudioConverter: (TPAACAudioConverter*) converter didMakeProgress: (CGFloat) progress
+- (void) AACAudioConverter: (TPAACAudioConverter*) converter didMakeProgress: (double) progress
 {
     enum ConverterState state = InProgress;
     NSDictionary* result = @{
         @"state" : [NSNumber numberWithInt:(UInt32)state],
-        @"progress" : [NSNumber numberWithDouble:(double)progress]
+        @"progress" : [NSNumber numberWithDouble:progress]
     };
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:_currentCommandCallbackId];

@@ -142,7 +142,7 @@ static inline BOOL _checkResultLite(OSStatus result, const char *operation, cons
 
 - (void)reportProgress:(NSNumber*)progress {
     if ( _cancelled ) return;
-    [_delegate AACAudioConverter:self didMakeProgress:[progress floatValue]];
+    [_delegate AACAudioConverter:self didMakeProgress:[progress doubleValue]];
 }
 
 - (void)reportCompletion {
@@ -368,7 +368,7 @@ static inline BOOL _checkResultLite(OSStatus result, const char *operation, cons
         
         if ( reportProgress && [NSDate timeIntervalSinceReferenceDate]-lastProgressReport > 0.1 ) {
             lastProgressReport = [NSDate timeIntervalSinceReferenceDate];
-            [self performSelectorOnMainThread:@selector(reportProgress:) withObject:[NSNumber numberWithFloat:(double)sourceFrameOffset/lengthInFrames] waitUntilDone:NO];
+            [self performSelectorOnMainThread:@selector(reportProgress:) withObject:[NSNumber numberWithDouble:(double)sourceFrameOffset/lengthInFrames] waitUntilDone:NO];
         }
     }
 
