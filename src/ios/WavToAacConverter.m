@@ -1,4 +1,5 @@
 #import "WavToAacConverter.h"
+#import "TPAACAudioConverter.h"
 
 @implementation WavToAacConverter
 {
