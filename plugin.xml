@@ -24,6 +24,8 @@
             </feature>
         </config-file>
     
+        <framework src="AudioToolBox.framework" />
+    
         <header-file src="src/ios/WavToAacConverter.h" />
         <source-file src="src/ios/WavToAacConverter.m" />
 
