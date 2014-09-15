@@ -71,13 +71,13 @@
         @"progress" : [NSNumber numberWithDouble:progress]
     };
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+    [pluginResult setKeepCallbackAsBool:YES];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:_currentCommandCallbackId];
 }
 
 - (void) sendErrorResult: (NSString*) cmdCallbackId withMessage: (NSString*) errorMessage
 {
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:errorMessage];
-    [pluginResult setKeepCallbackAsBool:YES];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:cmdCallbackId];
 }
     
