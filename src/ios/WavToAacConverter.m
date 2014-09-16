@@ -66,10 +66,10 @@
 - (void) AACAudioConverter: (TPAACAudioConverter*) converter didMakeProgress: (double) progress
 {
     enum ConverterState state = InProgress;
-    double progressPercent = (int)(progress * 10000) / 100.0;
+    int progressPercent = (int)(progress * 100);
     NSDictionary* result = @{
         @"state" : [NSNumber numberWithInt:(UInt32)state],
-        @"progress" : [NSNumber numberWithDouble:progressPercent]
+        @"progress" : [NSNumber numberWithInt:progressPercent]
     };
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
     [pluginResult setKeepCallbackAsBool:YES];
